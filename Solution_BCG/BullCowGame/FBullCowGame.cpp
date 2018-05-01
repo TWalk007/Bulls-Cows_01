@@ -5,14 +5,14 @@ FBullCowGame::FBullCowGame() { Reset();}
 
 int32 FBullCowGame::GetMaxTries() const { return MyMaxTries; }
 int32 FBullCowGame::GetCurrentTry() const { return MyCurrentTry; }
+int32 FBullCowGame::GetHiddenWordLength() const { return 	MyHiddenWord.length(); }
 
 void FBullCowGame::Reset() {
 	constexpr int32 MAX_TRIES = 8;
-	MyMaxTries = MAX_TRIES;
-
 	const FString HIDDEN_WORD = "planet";
-	MyHiddenWord = HIDDEN_WORD;
 
+	MyMaxTries = MAX_TRIES;
+	MyHiddenWord = HIDDEN_WORD;
 	MyCurrentTry = 1;
 	return;
 }
@@ -22,21 +22,34 @@ bool FBullCowGame::IsGameWon() const {
 	return false; 
 }
 
-bool FBullCowGame::CheckGuessValidity(FString) { 
+bool FBullCowGame::CheckGuessValidity(FString) const { 
 	return false; 
 }
 
 // receives a valid guess, increments turn, and returns count.
-BullCowCount FBullCowGame::SubmitGuess(FString) {
+FBullCowCount FBullCowGame::SubmitGuess(FString Guess) {
 	// increment the turn number
 	MyCurrentTry++;
 
 	// setup a return variable
-	BullCowCount BullCowCount; // this initializes BullCowCount
+	FBullCowCount BullCowCount; // this initializes BullCowCount
 
 	// loop through all letters in the guess
-	// for each letter we'll do some comparisons
+	int32 HiddenWordLength = MyHiddenWord.length();
+	for (int32 MHWChar = 0; MHWChar < HiddenWordLength; MHWChar++) {// we don't include the length of the word (not <=), just less than because the count starts at 0.	{
 		// compare letters against the hidden word.
-
+		for (int32 GChar = 0; GChar < HiddenWordLength; GChar++) {
+			// if they match then
+			if (Guess[GChar] == MyHiddenWord[MHWChar]) {
+				if (MHWChar == GChar) { //if the indices are the same (same location in the word)
+					BullCowCount.Bulls++; // increment bulls
+				}
+				else {
+					BullCowCount.Cows++; // increment cows
+				}
+			}
+		}
+	}
 	return BullCowCount;
+
 }
