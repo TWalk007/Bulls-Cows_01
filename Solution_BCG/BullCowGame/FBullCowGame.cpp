@@ -22,8 +22,8 @@ bool FBullCowGame::IsGameWon() const {
 	return false; 
 }
 
-bool FBullCowGame::CheckGuessValidity(FString) const { 
-	return false; 
+EWordStatus FBullCowGame::CheckGuessValidity(FString) const { 
+	return EWordStatus::OK;  // TODO make actual error.
 }
 
 // receives a valid guess, increments turn, and returns count.
