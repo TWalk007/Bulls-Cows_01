@@ -1,6 +1,4 @@
 ﻿  FBullCowGame.cpp
-h:\tom\_projects\personal projects\_udemy unreal course\01_bulls & cows\bulls-cows_01\bullcowgame\fbullcowgame.cpp(9): warning C4267: 'return': conversion from 'size_t' to 'int32', possible loss of data
-h:\tom\_projects\personal projects\_udemy unreal course\01_bulls & cows\bulls-cows_01\bullcowgame\fbullcowgame.cpp(53): warning C4267: 'initializing': conversion from 'size_t' to 'int32', possible loss of data
-  main.cpp
-  Generating Code...
+h:\tom\_projects\personal projects\_udemy unreal course\01_bulls & cows\bulls-cows_01\bullcowgame\fbullcowgame.cpp(12): warning C4267: 'return': conversion from 'size_t' to 'int32', possible loss of data
+h:\tom\_projects\personal projects\_udemy unreal course\01_bulls & cows\bulls-cows_01\bullcowgame\fbullcowgame.cpp(56): warning C4267: 'initializing': conversion from 'size_t' to 'int32', possible loss of data
   BullCowGame.vcxproj -> H:\Tom\_Projects\Personal Projects\_Udemy Unreal Course\01_Bulls & Cows\Bulls-Cows_01\x64\Debug\BullCowGame.exe
